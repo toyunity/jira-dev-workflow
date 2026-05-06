@@ -67,9 +67,11 @@ Pick any Jira MCP server compatible with Claude Code. The reference choice is [`
 1. Install the server (typically via `uvx` / `pipx` / Docker).
 2. Configure your Atlassian credentials (URL, email, API token).
 3. **Register the server with Claude Code under the server name `atlassian`.** This is critical — Claude Code namespaces MCP tools as `mcp__<server-name>__<tool-name>`, and this skill is wired against the `atlassian` namespace. Use:
+
    ```bash
    claude mcp add atlassian -- <command-to-launch-server>
    ```
+
    (or set `"atlassian"` as the key in your MCP config file).
 4. Verify in a Claude Code session that tools named `mcp__atlassian__jira_*` appear (`/mcp` lists registered servers, the tool list shows registered tools).
 
@@ -80,6 +82,7 @@ If `mcp__atlassian__jira_*` tools don't appear in a fresh Claude Code session, *
 ### Step 2 — Install this skill
 
 > **Heads-up:** if `~/.claude/skills/jira-dev-workflow/` already exists (e.g. from an earlier version, a fork, or another locale of this skill), back it up or remove it before cloning. `git clone` will refuse to write into a non-empty directory.
+>
 > ```bash
 > [ -d ~/.claude/skills/jira-dev-workflow ] && \
 >   mv ~/.claude/skills/jira-dev-workflow ~/.claude/skills/jira-dev-workflow.bak.$(date +%s)
@@ -184,7 +187,7 @@ Edit the file directly, or re-run the wizard by asking Claude to "reconfigure ji
 └─────────────────────────────────────────────────────────────┘
 ```
 
-**Issue type behavior**
+### Issue type behavior
 
 | Type | Mode |
 |------|------|
@@ -192,7 +195,7 @@ Edit the file directly, or re-run the wizard by asking Claude to "reconfigure ji
 | Task / Sub-task / Defect | Lite Plan — Direct Work mode |
 | Epic | Not supported (skill aborts) |
 
-**Branch naming**
+### Branch naming
 
 | Type | Pattern |
 |------|---------|

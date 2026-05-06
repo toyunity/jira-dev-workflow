@@ -3,17 +3,20 @@
 ## Pre-check
 
 ⚠️ Auto-detect whether anything needs pushing:
+
 ```bash
 git rev-list @{u}..HEAD --count 2>/dev/null && echo "ok" || echo "no-upstream"
 ```
 
 Result interpretation:
+
 - **Number > 0**: Unpushed commits exist → ask the push question below.
 - **0**: All commits are already pushed → skip the question.
 - **no-upstream**: No upstream tracking branch → ask the push question below.
 
 Only when push is needed:
 > "Push to origin/[current branch]? (y/n)"
+
 - **Approve (y)**: `git push -u origin [current branch]`
   - Execute mode: `{{BRANCH_PREFIX}}/_{{PROJECT_KEY}}-XXX/parent/{{PROJECT_KEY}}-XXX`
   - Direct mode (Story): the story parent branch
@@ -27,6 +30,7 @@ Only when push is needed:
 2. On approval:
    - `mcp__atlassian__jira_transition_issue` → parent ticket to `{{DONE_STATUS}}` (use the saved `transitions.done` id).
    - `mcp__atlassian__jira_add_comment` with this body:
+
      ```
      ## Development Summary
 

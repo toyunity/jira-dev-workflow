@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] — 2026-05-06
 
 ### Added
+
 - Initial public release.
 - 4-Phase workflow: analyze → plan → implement → complete, gated by per-step user approvals.
 - First-run interview wizard at `references/phase-0-setup.md` that writes per-project config.
@@ -21,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Atlassian Cloud / Server / Data Center support via the MCP layer.
 
 ### Known issues
+
 - `scripts/create-branch.sh` calls `git fetch origin` / `git pull origin` unconditionally — this fails on local-only repos or while offline. Inherited from the pre-OSS version. Track a graceful-skip fix in a future minor release.
 
 [Unreleased]: https://github.com/toyunity/jira-dev-workflow/compare/v0.1.0...HEAD

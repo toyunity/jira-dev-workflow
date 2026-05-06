@@ -38,6 +38,7 @@ Save the current progress to `.claude/jira-workflow-state.json`:
 ```
 
 Status values:
+
 - `not_started`: not yet started (3-1-setup hasn't run).
 - `in_progress`: 3-1-setup done, pre-commit (code work in flight).
 - `committed`: commit done, pre-merge (3-3 done, 3-4 not).
@@ -49,6 +50,7 @@ Status values:
 > The top-level `transitions` field holds the parent ticket's ids — used in Phase 4 for the parent transition.
 
 After saving, print to the user:
+
 ```
 ⏸ Workflow paused.
 Current position: Phase [N] — Task [M/T] ([{{PROJECT_KEY}}-ZZZ])
@@ -60,6 +62,7 @@ Type "resume" or "continue" to pick up from here.
 1. Read `.claude/jira-workflow-state.json`.
 2. If missing: "No saved workflow state. Provide a ticket number to start fresh."
 3. Print a summary:
+
    ```
    ▶ Workflow resumed: [{{PROJECT_KEY}}-XXX]
    Phase [N] — Task list:
@@ -67,6 +70,7 @@ Type "resume" or "continue" to pick up from here.
    🔄 [{{PROJECT_KEY}}-ZZZ] Task 2 (committed, pre-merge) ← resuming here
    ⬜ [{{PROJECT_KEY}}-WWW] Task 3 (not started)
    ```
+
 4. Pick the re-entry point based on status:
    - `not_started`: re-enter at 3-1-confirm (confirm mode) or 3-1-setup (auto mode).
    - `in_progress`: re-enter at 3-2 (code work).

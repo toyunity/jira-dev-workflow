@@ -3,6 +3,7 @@
 ## Full Plan Mode (Story)
 
 1. Decompose the ticket into Task units (one Task = one commit's worth of work) and print in this format:
+
    ```
    ## Plan: [{{PROJECT_KEY}}-XXX] [Title]
 
@@ -27,8 +28,10 @@
    - **Existing sub-tasks present** → go to step 3a.
 
 3a. Compare and map existing sub-tasks against the new plan:
-   - Attempt automatic mapping by `summary` similarity.
-   - Print a comparison table:
+
+- Attempt automatic mapping by `summary` similarity.
+- Print a comparison table:
+
      ```
      ## Existing sub-tasks vs new plan
 
@@ -38,20 +41,22 @@
      | 2 | Task 2: [Name] | — | New 🆕 |
      | 3 | Task 3: [Name] | {{PROJECT_KEY}}-BBB: [Title] | Reuse ✅ |
      ```
-   - Confirm with the user:
-     > "Does this mapping look right? Reuse the matched tickets and only create new ones for the rest? (y/edit/new-all)"
-     - **y**: Lock the mapping — reuse mapped tickets, create only the unmapped Tasks in step 4.
-     - **edit**: User specifies the mapping manually, then proceed as `y`.
-     - **new-all**: Ignore existing sub-tasks — create all Tasks in step 4.
 
-4. Create only the Tasks that need new tickets via `mcp__atlassian__jira_create_issue`:
+- Confirm with the user:
+     > "Does this mapping look right? Reuse the matched tickets and only create new ones for the rest? (y/edit/new-all)"
+  - **y**: Lock the mapping — reuse mapped tickets, create only the unmapped Tasks in step 4.
+  - **edit**: User specifies the mapping manually, then proceed as `y`.
+  - **new-all**: Ignore existing sub-tasks — create all Tasks in step 4.
+
+1. Create only the Tasks that need new tickets via `mcp__atlassian__jira_create_issue`:
    - Issue Type: the sub-task type name as it appears in your Jira instance (English: `Sub-task`; localized instances may use a different label — use whatever `mcp__atlassian__jira_get_issue` returns for an existing sub-task)
    - Parent: the story ticket
    - Summary: Task name
    - Description: Concrete description, target files / classes, done criteria
    - Assignee: the `accountId` resolved in Phase 1 (omit if `{{JIRA_USER_EMAIL}}` was unset)
 
-5. Print the completion table (Phase 3 will iterate over this):
+2. Print the completion table (Phase 3 will iterate over this):
+
    ```
    ## Phase 2 complete — Task list
    | # | Ticket | Name | Scope | Note |
@@ -67,6 +72,7 @@ Full Plan Mode complete → read `references/phase-3-execute.md` and start Phase
 ## Lite Plan Mode (Task / Sub-task / Defect)
 
 1. Decompose into Tasks and print:
+
    ```
    ## Plan: [{{PROJECT_KEY}}-XXX] [Title]
 

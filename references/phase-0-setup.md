@@ -11,6 +11,7 @@ SKILL.md detects the missing config and reads this file.
 **Before showing the wizard**, verify the Atlassian Jira MCP tools are available in this Claude Code session. The skill is non-functional without them and there is no point gathering config that can never be used.
 
 How to check (tool-list inspection only):
+
 - Inspect the available tool list for any tool name matching `mcp__atlassian__jira_*`. The minimum requirement is `mcp__atlassian__jira_get_issue`.
 - Do **not** try to make a real Jira call here. At this point no ticket key has been provided, so any synthetic call would be guessing. Real connectivity is implicitly verified in Phase 1 against the user's actual ticket.
 - If your host registered the MCP server under a different name (e.g. `mcp__jira__*` instead of `mcp__atlassian__*`), tell the user how to re-register it as `atlassian` and abort. The skill assumes the `atlassian` server name (see README §4 Step 1).
@@ -105,6 +106,7 @@ Do **not** re-prompt the user to start Phase 1 — the wizard's purpose is to ke
 ## Re-running setup
 
 If the user asks to "reconfigure" / "re-setup" / "edit jira-workflow config":
+
 1. Read the existing `.claude/jira-workflow-config.md` and show the current values.
 2. Run the wizard again with the existing values as defaults.
 3. Overwrite the file.

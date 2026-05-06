@@ -41,6 +41,7 @@ Determine Task scope:
 **Scope: large** (≥3 files modified or created, OR adds a new Controller/Service/Repository class):
 
 **Detect `code-task-agent` availability** (do this once per workflow, cache the result):
+
 - If the host exposes the available `subagent_type` list, look up `code-task-agent` directly.
 - Otherwise, just attempt to spawn (next bullet) — treat an "unknown subagent_type" / "agent not found" error from the `Agent` tool as the missing signal and fall through to inline implementation.
 
@@ -83,9 +84,11 @@ Determine Task scope:
 ## 3-3. Commit approval
 
 Before committing, run `git status` to confirm changed files:
+
 - **No changes**: skip the commit, only run the Jira state transition, then go to 3-4.
 
 When there are changes, propose a commit message:
+
 ```
 <gitmoji> <type>: <one-line subject>
 

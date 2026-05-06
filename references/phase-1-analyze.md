@@ -36,6 +36,7 @@ For example: `mcp__atlassian__jira_get_issue`, `mcp__atlassian__jira_get_transit
    - ⚠️ For child tickets, call `get_transitions` again on each child ticket — Jira workflows can differ per issue type.
 
 5. Print the analysis result:
+
    ```
    📋 [{{PROJECT_KEY}}-XXX] [Title]
    Status: [Current status]

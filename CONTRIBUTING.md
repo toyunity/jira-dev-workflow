@@ -29,9 +29,11 @@ Thanks for your interest in improving `jira-dev-workflow`.
 ## Local development
 
 1. Clone to your skills directory:
+
    ```bash
    git clone <your-fork> ~/.claude/skills/jira-dev-workflow
    ```
+
 2. Edit files in place. Claude Code reads them on each invocation — no rebuild step.
 3. Test by running through Phase 0 and Phase 1 in a throwaway project (delete `.claude/jira-workflow-config.md` to re-trigger Phase 0).
 
@@ -64,6 +66,7 @@ These are filled in at runtime from `.claude/jira-workflow-config.md`.
 ## Scope discipline
 
 This skill is intentionally narrow:
+
 - Jira (via MCP) + git + the four phases.
 - It does **not** try to be a generic "dev workflow" tool — patches that broaden the scope (e.g. GitHub-issues mode, GitLab integration baked in) are likely out of scope unless they share the same lifecycle and approval semantics.
 

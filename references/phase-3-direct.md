@@ -17,6 +17,7 @@ Entered when the user chose direct work for a Story, OR when the ticket type is 
 Same scope rule + subagent fallback as Phase 3-2:
 
 **Scope: large** (≥3 files modified or created, OR adds a new Controller/Service/Repository class):
+
 - **Detect `code-task-agent`** the same way as `phase-3-execute.md §3-2` (check the available `subagent_type` list, or attempt-and-classify).
 - If available → spawn via the `Agent` tool with `subagent_type: "code-task-agent"`.
   - Input: ticket, Task description, target files / classes, pattern doc paths, current branch, project root.
@@ -41,6 +42,7 @@ After the commit, run the Jira transition based on ticket type:
 > For Task / Defect / Sub-task paths, fetch the `transition_id` dynamically via `get_transitions` each time (same principle as elsewhere — workflows can differ per issue type).
 
 After all Tasks complete, the message depends on ticket type:
+
 - **Task / Defect**: "Open a merge request from `{{BRANCH_PREFIX}}/{{PROJECT_KEY}}-XXX` into `{{BASE_BRANCH}}` manually."
 - **Sub-task**: "Open a merge request from `{{BRANCH_PREFIX}}/_{{PROJECT_KEY}}-XXX/{{PROJECT_KEY}}-YYY` into the parent branch manually."
 - **Story (direct)**: Phase 4 will push and the user opens the MR.

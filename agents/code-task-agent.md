@@ -42,6 +42,7 @@ Verify the following before starting. If any fails, abort and write the reason i
 ### 1. Read CLAUDE.md (or AGENTS.md, .cursorrules, equivalent)
 
 Read `[Project root]/CLAUDE.md` (or whichever convention file the project uses) to learn:
+
 - Commit/comment conventions
 - Build, lint, and test commands
 - Code-exploration strategy (Grep → LSP → Read or whatever the project specifies)
@@ -77,6 +78,7 @@ Before implementing, write to the output JSON `notes` field:
 Use Edit/Write to make the changes per the pattern docs and project conventions.
 
 Comment policy (override only if the project's convention says otherwise):
+
 - Comment only when the WHY is non-obvious.
 - Do NOT write WHAT comments — well-named identifiers should already convey what the code does.
 - Remove dead/commented-out code that you replace.

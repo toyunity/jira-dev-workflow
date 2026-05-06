@@ -11,7 +11,7 @@ Skill({ skill: "superpowers:requesting-code-review" })
 **Detection by attempt:** if the host returns an error indicating the skill is unknown / not found / not installed (e.g. "skill not found", "unknown skill", "no such skill"), treat the dependency as missing.
 
 If the skill is missing, skip this Phase and notify the user:
-> "`superpowers:requesting-code-review` is not installed. Skipping the review step. Install the `superpowers` plugin (https://github.com/anthropics/skills) to enable automated code review here."
+> "`superpowers:requesting-code-review` is not installed. Skipping the review step. Install the `superpowers` plugin (<https://github.com/anthropics/skills>) to enable automated code review here."
 
 Then proceed to Phase 4.
 
