@@ -1,0 +1,53 @@
+{
+  "skill_name": "jira-dev-workflow",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "ENG-480 start work",
+      "should_trigger": true,
+      "expected_output": "Fetch ticket, print analysis, ask to transition status."
+    },
+    {
+      "id": 2,
+      "prompt": "begin development on this Jira ticket: ENG-512",
+      "should_trigger": true,
+      "expected_output": "Phase 1 ticket analysis."
+    },
+    {
+      "id": 3,
+      "prompt": "I need to work on ENG-399 — can you start?",
+      "should_trigger": true,
+      "expected_output": "Fetch ticket and start the workflow."
+    },
+    {
+      "id": 4,
+      "prompt": "draft a task plan for ENG-450",
+      "should_trigger": true,
+      "expected_output": "Phase 1 analysis followed by Phase 2 plan mode."
+    },
+    {
+      "id": 5,
+      "prompt": "please git commit",
+      "should_trigger": false,
+      "expected_output": "Plain commit task — this skill is not relevant."
+    },
+    {
+      "id": 6,
+      "prompt": "code review for AssignmentService",
+      "should_trigger": false,
+      "expected_output": "Review request — Jira workflow is not needed."
+    },
+    {
+      "id": 7,
+      "prompt": "open a PR from the current branch",
+      "should_trigger": false,
+      "expected_output": "PR creation task — unrelated to this skill."
+    },
+    {
+      "id": 8,
+      "prompt": "ENG-480 has a bug — please fix it",
+      "should_trigger": true,
+      "expected_output": "Ticket key + dev request → start the workflow."
+    }
+  ]
+}

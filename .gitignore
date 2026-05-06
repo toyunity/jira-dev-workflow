@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local config / runtime artifacts (this skill itself generates these per project)
+.claude/jira-workflow-config.md
+.claude/jira-workflow-state.json
+
+# Logs
+*.log
