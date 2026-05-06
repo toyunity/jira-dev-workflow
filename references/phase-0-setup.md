@@ -47,6 +47,8 @@ You can edit that file later to change any value.
 
 Ask each question via `AskUserQuestion` (or, if that tool is unavailable in the host, ask one at a time with `(default: <value>)` and accept blank-for-default).
 
+> `AskUserQuestion` accepts at most 4 questions per invocation. With 6 fields, **split into two calls** (e.g. fields 1–4 in one call, then 5–6 in a second call). Do not pack all six into a single invocation.
+
 | # | Field | Question | Default | Examples |
 |---|-------|----------|---------|----------|
 | 1 | `PROJECT_KEY` | Jira project key (the prefix in ticket numbers) | — (required) | `ENG`, `DEV`, `PROJ` |
